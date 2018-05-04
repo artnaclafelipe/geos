@@ -1,0 +1,32 @@
+available memory free to use in real mode - conventional memory
+
+conventional memory limit address 0x9F000 - 636Kb convetional memory necessary for system
+
+conventional memory free start address 0x500
+conventional memory free end address 0x9F000
+
+binary images address layout:
+	stage_zero start address - 0x7C00
+	stage_zero end   address - 0x7DFF
+	size in bytes - 512 - 0x200
+
+	stage_one start address - 0x500
+	stage_one end   address - 0x26FF
+	size in bytes - 8704 -    0x2200
+
+	kernel start address - 0x2700
+	kernel end   address - 0x17DFF
+	size in bytes - 87808 - 0x15700
+
+heap region layout:
+	heap start address - 0x17E00
+	heap end   address - 0x49DFF
+	size in bytes - 204800 - 0x32000
+
+stack region layout:
+	stack top       address - 0x9F000
+	stack bottom    address - 0x49E00
+	size in bytes - 348672 - 0x55200
+
+OBS: when stage_one is loaded and has control, it can do itself task ignoring stage_zero on memory
+	 kernel limit size override stage_zero bytes code	
